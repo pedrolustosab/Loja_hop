@@ -1,0 +1,10 @@
+CREATE TABLE "dim_tempo" (
+  "ano" integer NOT NULL,
+  "data" date NOT NULL,
+  "dia_mes" integer NOT NULL,
+  "dia_semana_desc" character varying(7),
+  "mes" integer,
+  "mes_desc" character varying(9),
+  "sk_tempo" integer,
+  CONSTRAINT sk_tempo_pkey PRIMARY KEY (sk_tempo)
+);

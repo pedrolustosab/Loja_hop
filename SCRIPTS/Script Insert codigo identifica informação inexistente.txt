@@ -1,0 +1,11 @@
+INSERT INTO dim_departamento(
+	sk_departamento, cod_departamento, nom_departamento, dtc_inicio, dtc_fim, versao)
+	VALUES (-1, -1, 'SEM INFORMACAO', '1900-01-01', NULL, 1);
+
+INSERT INTO dim_vendedor(
+	sk_vendedor, cod_vendedor, nom_vendedor, dtc_inicio, dtc_fim, versao)
+	VALUES (-1, -1, 'SEM INFORMACAO', '1900-01-01', NULL, 1);
+
+INSERT INTO dim_produto (
+	sk_produto, cod_produto, nom_produto, dtc_inicio, dtc_fim, versao)
+	VALUES (-1, -1, 'SEM INFORMACAO', '1900-01-01', NULL, 1);

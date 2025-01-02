@@ -1,0 +1,54 @@
+select * from dim_vendedor
+
+update STG_venda set dtc_venda=to_date('20220303','YYYYMMDD') WHERE id_venda=5
+
+update STG_venda set cod_departamento=7, dtc_venda=to_date('20220303','YYYYMMDD') WHERE id_venda=5
+
+SELECT * FROM STG_VENDA WHERE ID_VENDA=5
+select * from dim_tempo where sk_tempo=226
+
+select * from stg_venda where id_venda=2
+
+select * from dim_vendedor where cod_vendedor=3
+
+select * from dim_produto where cod_produto=10
+
+
+select * from dim_departamento where cod_departamento=7
+
+update STG_venda set dtc_venda=to_date('20220303','YYYYMMDD')
+
+select * from stg_venda where cod_departamento=7
+
+update STG_venda set cod_produto=40 WHERE id_venda=5
+
+select * from fat_venda where id_venda=5
+
+select * from stg_venda where id_venda=5
+
+select * from dim_departamento where cod_departamento=7
+
+select * from dim_tempo where sk_tempo=2983select * from dim_tempo where sk_tempo=226
+
+select * from stg_venda where id_venda=2
+
+select * from dim_vendedor where cod_vendedor=3
+
+select * from dim_produto where cod_produto=10
+
+
+select * from dim_departamento where cod_departamento=7
+
+update STG_venda set dtc_venda=to_date('20220303','YYYYMMDD')
+
+select * from stg_venda where cod_departamento=7
+
+update STG_venda set cod_produto=40 WHERE id_venda=5
+
+select * from fat_venda where id_venda=5
+
+select * from stg_venda where id_venda=5
+
+select * from dim_departamento where cod_departamento=7
+
+select * from dim_tempo where sk_tempo=2983

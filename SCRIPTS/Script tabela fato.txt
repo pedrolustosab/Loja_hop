@@ -1,0 +1,11 @@
+ CREATE  TABLE fat_venda (
+  "id_venda" integer NOT NULL,
+  "num_nota" integer NOT NULL,
+  "sk_tempo" integer NULL,
+  "sk_produto" integer NULL,
+  "sk_vendedor" integer NULL,
+  "sk_departamento" integer NULL,
+  "qtd_venda" integer DEFAULT NULL,
+  "val_venda" decimal(10,2) DEFAULT NULL,
+  CONSTRAINT id_venda_pkey PRIMARY KEY (id_venda)
+)

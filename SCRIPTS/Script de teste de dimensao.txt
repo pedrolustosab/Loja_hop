@@ -1,0 +1,5 @@
+SELECT sk_vendedor, cod_vendedor, nom_vendedor, dtc_inicio, dtc_fim, versao
+	FROM public.dim_vendedor;
+	
+update stg_vendedor set nom_vendedor='ANTONIO SOARES' where cod_vendedor=1
+

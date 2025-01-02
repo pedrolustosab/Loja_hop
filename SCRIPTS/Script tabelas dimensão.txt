@@ -1,0 +1,29 @@
+CREATE TABLE "dim_departamento" (
+  "sk_departamento" integer NOT NULL,
+  "cod_departamento" integer NULL,
+  "nom_departamento" varchar(100)NULL,
+  "dtc_inicio" date,
+  "dtc_fim" date,
+  "versao" integer,
+  CONSTRAINT sk_departamento_pkey PRIMARY KEY (sk_departamento)
+);
+
+CREATE TABLE "dim_vendedor" (
+  "sk_vendedor" integer NOT NULL,
+  "cod_vendedor" integer NULL,
+  "nom_vendedor" varchar(255)NULL,
+  "dtc_inicio" date,
+  "dtc_fim" date,
+  "versao" integer,
+  CONSTRAINT sk_vendedor_pkey PRIMARY KEY (sk_vendedor)
+);
+
+CREATE TABLE "dim_produto" (
+  "sk_produto" integer NOT NULL,
+  "cod_produto" integer NULL,
+  "nom_produto" varchar(255)NULL,
+  "dtc_inicio" date,
+  "dtc_fim" date,
+  "versao" integer,
+  CONSTRAINT sk_produto_pkey PRIMARY KEY (sk_produto)
+);
