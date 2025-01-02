@@ -31,8 +31,13 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Leitura stg_venda</from>
-      <to>Pesquisa sk_tempo2</to>
+      <from>Pesquisar sk_departamento</from>
+      <to>Select values</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Pesquisar sk_produto</from>
+      <to>Pesquisar sk_departamento</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -46,96 +51,21 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
+      <from>Leitura stg_venda 2</from>
+      <to>Pesquisa sk_tempo2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
       <from>Pesquisa sk_tempo2</from>
       <to>Pesquisa sk_vendedor 2</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
       <from>Pesquisa sk_vendedor 2</from>
-      <to>Pesquisa sk_produto</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Leitura dim_produto</from>
-      <to>Pesquisa sk_produto</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Pesquisa sk_produto</from>
-      <to>Pesquisa sk_departamento</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Leitura dim_departamento</from>
-      <to>Pesquisa sk_departamento</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Pesquisa sk_departamento</from>
-      <to>Select values</to>
+      <to>Pesquisar sk_produto</to>
       <enabled>Y</enabled>
     </hop>
   </order>
-  <transform>
-    <name>Leitura dim_departamento</name>
-    <type>TableInput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <connection>db_loja</connection>
-    <execute_each_row>N</execute_each_row>
-    <limit>0</limit>
-    <sql>SELECT
-  sk_departamento
-, cod_departamento
-, nom_departamento
-, dtc_inicio
-, dtc_fim
-, versao
-FROM dw.dim_departamento
-</sql>
-    <variables_active>N</variables_active>
-    <attributes/>
-    <GUI>
-      <xloc>880</xloc>
-      <yloc>64</yloc>
-    </GUI>
-  </transform>
-  <transform>
-    <name>Leitura dim_produto</name>
-    <type>TableInput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <connection>db_loja</connection>
-    <execute_each_row>N</execute_each_row>
-    <limit>0</limit>
-    <sql>SELECT
-  sk_produto
-, cod_produto
-, nom_produto
-, dtc_inicio
-, dtc_fim
-, versao
-FROM dw.dim_produto
-</sql>
-    <variables_active>N</variables_active>
-    <attributes/>
-    <GUI>
-      <xloc>720</xloc>
-      <yloc>64</yloc>
-    </GUI>
-  </transform>
   <transform>
     <name>Leitura dim_tempo</name>
     <type>TableInput</type>
@@ -164,8 +94,8 @@ FROM dw.dim_tempo
     <variables_active>N</variables_active>
     <attributes/>
     <GUI>
-      <xloc>368</xloc>
-      <yloc>64</yloc>
+      <xloc>336</xloc>
+      <yloc>96</yloc>
     </GUI>
   </transform>
   <transform>
@@ -194,12 +124,12 @@ FROM dw.dim_vendedor
     <variables_active>N</variables_active>
     <attributes/>
     <GUI>
-      <xloc>544</xloc>
-      <yloc>64</yloc>
+      <xloc>496</xloc>
+      <yloc>96</yloc>
     </GUI>
   </transform>
   <transform>
-    <name>Leitura stg_venda</name>
+    <name>Leitura stg_venda 2</name>
     <type>TableInput</type>
     <description/>
     <distribute>N</distribute>
@@ -226,75 +156,7 @@ FROM stg.stg_venda
     <variables_active>N</variables_active>
     <attributes/>
     <GUI>
-      <xloc>144</xloc>
-      <yloc>224</yloc>
-    </GUI>
-  </transform>
-  <transform>
-    <name>Pesquisa sk_departamento</name>
-    <type>StreamLookup</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <from>Leitura dim_departamento</from>
-    <input_sorted>N</input_sorted>
-    <preserve_memory>Y</preserve_memory>
-    <sorted_list>N</sorted_list>
-    <integer_pair>N</integer_pair>
-    <lookup>
-      <key>
-        <name>cod_departamento</name>
-        <field>cod_departamento</field>
-      </key>
-      <value>
-        <name>sk_departamento</name>
-        <rename>sk_departamento</rename>
-        <default/>
-        <type>Integer</type>
-      </value>
-    </lookup>
-    <attributes/>
-    <GUI>
-      <xloc>880</xloc>
-      <yloc>224</yloc>
-    </GUI>
-  </transform>
-  <transform>
-    <name>Pesquisa sk_produto</name>
-    <type>StreamLookup</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <from>Leitura dim_produto</from>
-    <input_sorted>N</input_sorted>
-    <preserve_memory>Y</preserve_memory>
-    <sorted_list>N</sorted_list>
-    <integer_pair>N</integer_pair>
-    <lookup>
-      <key>
-        <name>cod_produto</name>
-        <field>cod_produto</field>
-      </key>
-      <value>
-        <name>sk_produto</name>
-        <rename>sk_produto</rename>
-        <default/>
-        <type>Integer</type>
-      </value>
-    </lookup>
-    <attributes/>
-    <GUI>
-      <xloc>720</xloc>
+      <xloc>176</xloc>
       <yloc>224</yloc>
     </GUI>
   </transform>
@@ -328,7 +190,7 @@ FROM stg.stg_venda
     </lookup>
     <attributes/>
     <GUI>
-      <xloc>368</xloc>
+      <xloc>340</xloc>
       <yloc>224</yloc>
     </GUI>
   </transform>
@@ -362,7 +224,95 @@ FROM stg.stg_venda
     </lookup>
     <attributes/>
     <GUI>
-      <xloc>544</xloc>
+      <xloc>504</xloc>
+      <yloc>224</yloc>
+    </GUI>
+  </transform>
+  <transform>
+    <name>Pesquisar sk_departamento</name>
+    <type>DimensionLookup</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <cache_size>5000</cache_size>
+    <commit>100</commit>
+    <connection>db_loja</connection>
+    <fields>
+      <date>
+        <from>dtc_inicio</from>
+        <name>dtc_venda</name>
+        <to>dtc_fim</to>
+      </date>
+      <key>
+        <lookup>cod_departamento</lookup>
+        <name>cod_departamento</name>
+      </key>
+      <return>
+        <creation_method>tablemax</creation_method>
+        <name>sk_departamento</name>
+        <version>versao</version>
+      </return>
+    </fields>
+    <max_year>2199</max_year>
+    <min_year>1900</min_year>
+    <preload_cache>N</preload_cache>
+    <schema>dw</schema>
+    <table>dim_departamento</table>
+    <update>N</update>
+    <useBatch>N</useBatch>
+    <use_start_date_alternative>Y</use_start_date_alternative>
+    <attributes/>
+    <GUI>
+      <xloc>832</xloc>
+      <yloc>224</yloc>
+    </GUI>
+  </transform>
+  <transform>
+    <name>Pesquisar sk_produto</name>
+    <type>DimensionLookup</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <cache_size>5000</cache_size>
+    <commit>100</commit>
+    <connection>db_loja</connection>
+    <fields>
+      <date>
+        <from>dtc_inicio</from>
+        <name>dtc_venda</name>
+        <to>dtc_fim</to>
+      </date>
+      <key>
+        <lookup>cod_produto</lookup>
+        <name>cod_produto</name>
+      </key>
+      <return>
+        <creation_method>tablemax</creation_method>
+        <name>sk_produto</name>
+        <version>versao</version>
+      </return>
+    </fields>
+    <max_year>2199</max_year>
+    <min_year>1900</min_year>
+    <preload_cache>N</preload_cache>
+    <schema>dw</schema>
+    <table>dim_produto</table>
+    <update>N</update>
+    <useBatch>N</useBatch>
+    <use_start_date_alternative>N</use_start_date_alternative>
+    <attributes/>
+    <GUI>
+      <xloc>668</xloc>
       <yloc>224</yloc>
     </GUI>
   </transform>
@@ -406,7 +356,7 @@ FROM stg.stg_venda
 </valuetypes>
     <attributes/>
     <GUI>
-      <xloc>1184</xloc>
+      <xloc>1160</xloc>
       <yloc>224</yloc>
     </GUI>
   </transform>
@@ -450,7 +400,7 @@ FROM stg.stg_venda
     </fields>
     <attributes/>
     <GUI>
-      <xloc>1056</xloc>
+      <xloc>996</xloc>
       <yloc>224</yloc>
     </GUI>
   </transform>
@@ -505,21 +455,18 @@ FROM stg.stg_venda
     <only_when_have_rows>N</only_when_have_rows>
     <partitioning_daily>N</partitioning_daily>
     <partitioning_enabled>N</partitioning_enabled>
-    <partitioning_field/>
     <partitioning_monthly>Y</partitioning_monthly>
-    <return_field/>
     <return_keys>N</return_keys>
     <schema>dw</schema>
     <specify_fields>Y</specify_fields>
     <table>fat_venda</table>
-    <tablename_field/>
     <tablename_in_field>N</tablename_in_field>
     <tablename_in_table>Y</tablename_in_table>
     <truncate>Y</truncate>
     <use_batch>Y</use_batch>
     <attributes/>
     <GUI>
-      <xloc>1328</xloc>
+      <xloc>1324</xloc>
       <yloc>224</yloc>
     </GUI>
   </transform>

@@ -343,27 +343,35 @@ var ano_mes = year * 100 + month;
     <fields>
       <field>
         <name>sequencia</name>
+        <rename>sk_tempo</rename>
       </field>
       <field>
         <name>data</name>
+        <rename/>
       </field>
       <field>
         <name>ano</name>
+        <rename/>
       </field>
       <field>
         <name>mes</name>
+        <rename/>
       </field>
       <field>
         <name>dia_mes</name>
+        <rename/>
       </field>
       <field>
         <name>dia_semana_desc</name>
+        <rename/>
       </field>
       <field>
         <name>mes_desc</name>
+        <rename/>
       </field>
       <field>
         <name>ano_mes</name>
+        <rename/>
       </field>
       <select_unspecified>N</select_unspecified>
       <meta>
@@ -405,12 +413,20 @@ var ano_mes = year * 100 + month;
     <connection>db_loja</connection>
     <fields>
       <field>
-        <column_name>ano</column_name>
-        <stream_name>ano</stream_name>
+        <column_name>sk_tempo</column_name>
+        <stream_name>sk_tempo</stream_name>
       </field>
       <field>
         <column_name>data</column_name>
         <stream_name>data</stream_name>
+      </field>
+      <field>
+        <column_name>ano</column_name>
+        <stream_name>ano</stream_name>
+      </field>
+      <field>
+        <column_name>mes</column_name>
+        <stream_name>mes</stream_name>
       </field>
       <field>
         <column_name>dia_mes</column_name>
@@ -421,16 +437,12 @@ var ano_mes = year * 100 + month;
         <stream_name>dia_semana_desc</stream_name>
       </field>
       <field>
-        <column_name>mes</column_name>
-        <stream_name>mes</stream_name>
-      </field>
-      <field>
         <column_name>mes_desc</column_name>
         <stream_name>mes_desc</stream_name>
       </field>
       <field>
-        <column_name>sk_tempo</column_name>
-        <stream_name>sequencia</stream_name>
+        <column_name>ano_mes</column_name>
+        <stream_name>ano_mes</stream_name>
       </field>
     </fields>
     <ignore_errors>N</ignore_errors>
@@ -468,7 +480,7 @@ var ano_mes = year * 100 + month;
     </partitioning>
     <connection>DEV</connection>
     <increment_by>1</increment_by>
-    <max_value>999999999</max_value>
+    <max_value>5000</max_value>
     <seqname>SEQ_</seqname>
     <start_at>0</start_at>
     <use_counter>Y</use_counter>

@@ -48,7 +48,6 @@
     <fields>
       <date>
         <from>dtc_inicio</from>
-        <name/>
         <to>dtc_fim</to>
       </date>
       <field>
@@ -63,7 +62,6 @@
       <return>
         <creation_method>tablemax</creation_method>
         <name>sk_produto</name>
-        <rename/>
         <version>versao</version>
       </return>
     </fields>
@@ -71,12 +69,10 @@
     <min_year>1900</min_year>
     <preload_cache>N</preload_cache>
     <schema>dw</schema>
-    <sequence/>
-    <start_date_field_name/>
     <table>dim_produto</table>
     <update>Y</update>
     <useBatch>N</useBatch>
-    <use_start_date_alternative>N</use_start_date_alternative>
+    <use_start_date_alternative>Y</use_start_date_alternative>
     <attributes/>
     <GUI>
       <xloc>720</xloc>

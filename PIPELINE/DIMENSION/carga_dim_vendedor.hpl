@@ -76,7 +76,7 @@
     <table>dim_vendedor</table>
     <update>Y</update>
     <useBatch>N</useBatch>
-    <use_start_date_alternative>N</use_start_date_alternative>
+    <use_start_date_alternative>Y</use_start_date_alternative>
     <attributes/>
     <GUI>
       <xloc>608</xloc>

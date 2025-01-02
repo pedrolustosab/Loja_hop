@@ -1,13 +1,13 @@
 {
   "rdbms": {
     "POSTGRESQL": {
-      "databaseName": "${db_name}",
+      "databaseName": "hop",
       "pluginId": "POSTGRESQL",
       "accessType": 0,
-      "hostname": "${db_server}",
-      "password": "${db_password}",
+      "hostname": "dpg-ctkrgctds78s73c26svg-a.oregon-postgres.render.com",
+      "password": "Encrypted 456e637279707465642033323736366335353333343835353663373234313536333837373333363734376433616565306131323063313936393787fe9fab53c4c582a840f720dc94f788",
       "pluginName": "PostgreSQL",
-      "port": "${db_port}",
+      "port": "5432",
       "attributes": {
         "SUPPORTS_TIMESTAMP_DATA_TYPE": "Y",
         "QUOTE_ALL_FIELDS": "N",
@@ -19,7 +19,7 @@
         "PREFERRED_SCHEMA_NAME": ""
       },
       "manualUrl": "",
-      "username": "${db_user}"
+      "username": "pedro"
     }
   },
   "name": "db_loja"
